@@ -1,7 +1,9 @@
-\title{Euclid's Algorithm For Identity Thieves}
+\title{Euclid's Division Algorithm es}
 \date{\today}
 
 \documentclass[12pt]{article}
+\usepackage{amsmath, amssymb,amscd}
+\usepackage{enumitem}
 
 \begin{document}
 \maketitle
@@ -12,14 +14,33 @@ Let's say you get hold of someone's Driver's Licence number and would like to fi
 \paragraph{Euclid's Division Algorithm}
 If $a$ and $b$ are integers then $a,b$ can be expressed as $a = bq + r$  where $ 0 \leq  r < b$
 
-\paragraph{gcd}
-\section{Results}\label{results}
-In this section we describe the results.
+\paragraph{Euclidean Algorithm to find $gcd(34,126)$ }
+  \begin{align}
+    126 = 3 \cdot 34 + 24 \\
+    34 = 1 \cdot 24 + 10 \\
+    24 = 2 \cdot 10 + 4 \\
+    10 = 2 \cdot 4 + 2 \\
+    4 = 2 \cdot 2 + 0\\
+    gcd(34,126) = 2 
+  \end{align}
 
-\section{Conclusions}\label{conclusions}
-We worked hard, and achieved very little.
+\paragraph{gcd as as linear combination of numbers}
+  If, $d = gcd(a,b)$, then $d$ can be written as $d = ma + kb$. From above,
+  \begin{align}
+    24 = 126 - 3 \cdot 34 \\
+    10 = 34 - 1 \cdot 24 \\
+    4 = 24 - 2 \cdot 10 \\
+    2 = 10 - 2 \cdot 4
+  \end{align}
+  Substituting back,
+  \begin{align}
+    2 = ( 34 -24 ) - 2(24 - 2 \cdot 10) \\
+    2 = 34 - 126 + 3 \cdot 34  -2 ( 126 - 3 \cdot 34 - 2( 34 -24)) \\
+    2  = 4 \cdot 34  - 126  - 2\cdot126 + 6\cdot34 + 4\cdot34 - 4\cdot24 \\
+    2 = 14\cdot34 - 3\cdot126 - 4\cdot 126 + 12\cdot34 \\
+    2 = 26\cdot34 - 7\cdot126
+  \end{align}
 
-\bibliographystyle{abbrv}
-\bibliography{main}
+
 
 \end{document}
