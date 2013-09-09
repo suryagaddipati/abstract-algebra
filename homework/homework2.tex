@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb,amscd}
+\usepackage{xypic}
+\usepackage{setspace}
+\usepackage{enumerate}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\oddsidemargin 0in
+\textwidth 6.25in
+\topmargin 0in
+\textheight 9in
+\doublespace
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{fixltx2e}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows,decorations.markings}
+
+\newenvironment{faq}{\begin{description}[style=nextline]}{\end{description}}
+\tikzset{
+    polygon n/.code=\gdef\polygonN{#1}, % Save N in a global macro
+    polygon/.style={
+        regular polygon,
+        regular polygon sides=#1,
+        polygon n=#1,
+        draw,
+        minimum size=2cm,
+        outer sep=0pt
+    },
+    mirror polygon/.style={
+        insert path={
+            let \p1 = (A.corner #1),
+                \p2 = (A.side #1) in (\p1)
+            ($ 2*($(\p1)!(A.corner 1)!(\p2)$) - (A.corner 1) $) % Path needs to be started before the foreach
+            \foreach \n in {2,...,\polygonN} {
+                -- ($ 2*($(\p1)!(A.corner \n)!(\p2)$) - (A.corner \n) $)
+            } -- cycle
+        }       
+    }
+}
+\begin{document} 
+
+\begin{document}
+
+\begin{faq}
+\item[Cayley table for D\textsubscript3]
+A symmetry can be described as an operation when performed on a object results in the same object.\\
+Let's explore symmetry of D\textsubscript3, an equilateral triangle
+
+\begin{tikzpicture}
+  \node (A) [draw,regular polygon, regular polygon sides=3, minimum size=2cm,outer sep=0pt] {};
+  \foreach \n in {1,...,3} {
+    \node at (\n) [anchor=360/3*(\n-1)+270] {\scriptsize\texttt{ \n}};
+  }
+\end{tikzpicture}
+
+
+
+\end{faq}
+\end{document}
