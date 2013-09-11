@@ -12,50 +12,45 @@
 \doublespace
 \usepackage{amsthm}
 \usepackage{enumitem}
-\usepackage{tikz}
-\usepackage{fixltx2e}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{arrows,decorations.markings}
-
 \newenvironment{faq}{\begin{description}[style=nextline]}{\end{description}}
-\tikzset{
-    polygon n/.code=\gdef\polygonN{#1}, % Save N in a global macro
-    polygon/.style={
-        regular polygon,
-        regular polygon sides=#1,
-        polygon n=#1,
-        draw,
-        minimum size=2cm,
-        outer sep=0pt
-    },
-    mirror polygon/.style={
-        insert path={
-            let \p1 = (A.corner #1),
-                \p2 = (A.side #1) in (\p1)
-            ($ 2*($(\p1)!(A.corner 1)!(\p2)$) - (A.corner 1) $) % Path needs to be started before the foreach
-            \foreach \n in {2,...,\polygonN} {
-                -- ($ 2*($(\p1)!(A.corner \n)!(\p2)$) - (A.corner \n) $)
-            } -- cycle
-        }       
-    }
-}
+
+
+
 \begin{document} 
-
-\begin{document}
-
+Surya Gaddipati\\
+\today \\
+MATH 330 
 \begin{faq}
-\item[Cayley table for D\textsubscript3]
-A symmetry can be described as an operation when performed on a object results in the same object.\\
-Let's explore symmetry of D\textsubscript3, an equilateral triangle
+\item[ Let S be the set of real numbers.If$a,b \in S$,define $a\sim b$ if $a - b$ is an integer. Show that $\sim$ is an equivalence relation on S. Describe the equivalence classes of S.]
+ Verifing properties of a equivalance relation
 
-\begin{tikzpicture}
-  \node (A) [draw,regular polygon, regular polygon sides=3, minimum size=2cm,outer sep=0pt] {};
-  \foreach \n in {1,...,3} {
-    \node at (\n) [anchor=360/3*(\n-1)+270] {\scriptsize\texttt{ \n}};
-  }
-\end{tikzpicture}
+ \begin{itemize}
+   \item reflexive
+     $(a,a) = a - a = 0$ and $0$ is an integer
+   \item symmetric
+     Assume $a \equiv b$, $b - a = -(a -b)$ if $ a -b$ is an integer then $-(a -b)$ is an integer too. Hence $(a,b)\in R$ implies $(b,a)\in R$
+   \item tansitive
+Assume $a \equiv b$ and  $b \equiv c$ which means $a-b$ and $b-c$ are integers  \\
+$a - c = (a -b) + (b -c)$ . Sum of two integers is an iteger hence it implies $a\equiv c$.
+ \end{itemize}
 
+Equivalance Classes: Equivalance realation partions $S$ into set of Integers with 
+\newline
+\newline
+\newline
 
+\item[ Let S be the set of real numbers.If$a,b \in S$,define $aRb$ if $ab\geq0$. Is $R$ an equivalance relation on $S$?]
+  No, because tansitive property doesn't hold. Let $a < 0$ and $b=0$ and $c > 0$  
+$ab\geq0$ and $bc\geq0$ but $ac < 0$. It would have  been an equivalance realtion had it been $ab>0$.
 
+\pagebreak
+\item[Is $D_3$ albenian]
+  No. From previous table $R_1K_1 = K_2$ but $K_1R_2=K_3$. So commutative property doesn't hold
+
+\item[Find elements A,B ,and C in D4 such that $AB=BC$ but $A\neq C$. (Thus, “cross cancellation” is not valid.)]
+  from the cayley's table for $D_4$ in the book, 
+  $R_{90} V = D'$ \\ 
+  $VR_{270} = D'$ 
+  but  $R_{90} \neq R_{270}$
 \end{faq}
 \end{document}
