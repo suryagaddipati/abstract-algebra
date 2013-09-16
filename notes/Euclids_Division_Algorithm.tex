@@ -1,9 +1,19 @@
-\title{Euclid's Division Algorithm es}
+\title{Euclid's Division Algorithm }
 \date{\today}
 
 \documentclass[12pt]{article}
 \usepackage{amsmath, amssymb,amscd}
 \usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{listings}
+\lstloadlanguages{Ruby}
+\lstset{%
+  basicstyle=\ttfamily\color{black},
+  commentstyle = \ttfamily\color{red},
+  keywordstyle=\ttfamily\color{blue},
+  stringstyle=\color{orange}}
+
 
 \begin{document}
 \maketitle
@@ -13,6 +23,15 @@ Let's say you get hold of someone's Driver's Licence number and would like to fi
 
 \paragraph{Euclid's Division Algorithm}
 If $a$ and $b$ are integers then $a,b$ can be expressed as $a = bq + r$  where $ 0 \leq  r < b$
+Moreover these integers $q$ and $r$ are unique because if we assume there are two other integers $q1,r1$ 
+such that   $ 0 \leq  r, r1 < b$ 
+
+
+  \begin{align}
+ a = bq + r = bq1 + r1 \\
+ b(q-q1) = r -r1  => b | r -r1 \\
+  \end{align}
+ since $r,r1 < b$ , $b|r-r1$ is a cotradiction
 
 \paragraph{Euclidean Algorithm to find $gcd(34,126)$ }
   \begin{align}
@@ -21,8 +40,17 @@ If $a$ and $b$ are integers then $a,b$ can be expressed as $a = bq + r$  where $
     24 = 2 \cdot 10 + 4 \\
     10 = 2 \cdot 4 + 2 \\
     4 = 2 \cdot 2 + 0\\
-    gcd(34,126) = 2 
+    gcd(34,126) = 4
   \end{align}
+
+This is the ruby script I use 
+\begin{lstlisting}[language=Ruby]
+def gcd(a,b)
+  (t= a ; a =b ; b =t) if a < b 
+  return b if a % b ==  0 
+  gcd(b, a%b) 
+end
+\end{lstlisting}
 
 \paragraph{gcd as as linear combination of numbers}
   If, $d = gcd(a,b)$, then $d$ can be written as $d = ma + kb$. From above,
