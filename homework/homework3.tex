@@ -20,7 +20,7 @@ MATH 330
 \begin{faq}
 \item[Show that \{1, 2, 3\} under multiplication modulo 4 is not a group but that \{1, 2, 3, 4\} under multiplication modulo 5 is a group.]
   a) \{1, 2, 3\}  is not a group because  $2$ doesn't have an inverse. \\
-b) lets verfiy group properties for $S = \{1, 2, 3, 4\} $
+b) lets verify group properties for $S = \{1, 2, 3, 4\} $
 
  \begin{itemize}
    \item closure
@@ -40,8 +40,41 @@ b) lets verfiy group properties for $S = \{1, 2, 3, 4\} $
      4.2 = 3 $\in$ $S$ , 
      4.3 = 2 $\in$ $S$ , 
      4.4 = 1 $\in$ $S$  
-   \item 
+   \item Associativity.
+     Follows from Associativity of integers
+   \item Identity
+     $1$ is an identity 
+   \item inverse
+     All elements have an inverse
+     $(1,1)$  $(2,3)$ $(3,2)$ $(1,1)$ $(4,4)$
   \end{itemize}
+\item[Show that the group $GL(2, R)$ of Example 9 is non-Abelian by exhibiting a pair of matrices A and B in $GL(2, R)$ such that $AB\neq BA$.]
+  $A = \left( \begin{matrix} 1&2\\ 3&4 \end{matrix} \right)$
+  $B = \left( \begin{matrix} 5&6\\ 7&8 \end{matrix} \right)$ \\
+  $AB = \left( \begin{matrix} 19&22\\ 43&50 \end{matrix} \right)$
+  $BA = \left( \begin{matrix} 23&34\\ 31&46 \end{matrix} \right)$\\
+  $AB\neq BA$
+ 
+\item[Show that $(ab)^{-1} = b^{-1}a^{-1}$]
+  \begin{equation}
+  \begin{split}
+    (ab)(ab)^{-1} = e \\
+    a^{-1} a b (ab)^{-1} = a^{-1}\\
+    b^{-1}b (ab)^{-1} = b^{-1}a^{-1}\\
+    (ab)^{-1} = b^{-1}a^{-1} \\
+  \end{split}
+  \end{equation}
+\item[Find an example that shows that in a group, it is possible to have $(ab)^{-2} \neq b^{-2}a^{-2}$]
 
-\end{faq}
+\item[Non identity elements from non-abelian group such that $(ab)^{-1} = a^{-1} b^{-1}$]
+  In dihedral group $D4$ (from page 33)
+  let $a = r90$ and $b=r180$ \\
+  $(ab) = r270$,  $(ab)^{-1} = r90$ \\
+  $a^{-1}b^{-1} = r270.r180 = r90$
+
+\item[Shoe socks anology $(ab)^{-1} = b^{-1}a^{-1}$]
+  a = socks , b = shoes, ab = putting socks and shoes ,  $(ab)^{-1}$ = taking shoes and socks off. \\
+  To reverse putting socks and shoes you have to do the opposite take shoes off first $b^{-1}$  and then socks off $a^{-1}$ .
+
+\end{faq} 
 \end{document}
