@@ -1,22 +1,26 @@
-p = [(1..9).to_a,(1..9).to_a]
 
 
 def print(p)
-  p p[0]
-  p p[1]
+  puts '-'*10
+  p ((1..p.to_a.size).to_a)
+  p p.to_a
+  puts '-'*10
 end
 
-def apply_permutation(p,*cycle)
-  cycle.each_with_index{|x,i|
-    p x,i
-    p[1][x-1] = (cycle.size() -1 == i)? cycle[0]: cycle[i+1]
-  }
+def goes_to(e, cycle)
+  hash = Hash[cycle.map.with_index.to_a] 
+  cycle.include?(e)? (hash[e]+1 == cycle.size ? cycle[0] : cycle[hash[e]+1])  : e; 
+end
+
+def apply_permutation(p,cycle)
+  p.map{|e|  goes_to(e,cycle) }
 end
 
 
+p = (1..4) 
 print(p)
-apply_permutation(p,3,8,6)
-apply_permutation(p,1,6)
-apply_permutation(p,6,4,2,5,9)
-apply_permutation(p,2,4,9,7)
+(1..3).each{|x|p = apply_permutation(p,[1,2,3,4])}
 print(p)
+#apply_permutation(p,1,6)
+#apply_permutation(p,6,4,2,5,9)
+#apply_permutation(p,2,4,9,7)
