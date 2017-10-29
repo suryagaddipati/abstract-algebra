@@ -1,6 +1,5 @@
 # Latex files
-*.fdb_latexmk
-*.brf
+
 *.fls
 *.nav 
 *.snm 
